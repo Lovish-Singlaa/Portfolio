@@ -9,8 +9,8 @@ const mywork_data = [
         w_name:"CareerBridge-Job Portal",
         w_img:project1_img,
         w_desc:"CareerBridge is a full-stack job portal that connects job seekers with recruiters. It features authentication with JWT, job postings, recruiter profiles, skill endorsements, and portfolio uploads",
-        url:"https://face-recognition-kshe.onrender.com/api/v1/users",
-        github:"https://github.com/Lovish-Singlaa/Face-Recognition.git"
+        github:"https://github.com/Lovish-Singlaa/CareerBridge-Job-Portal-Frontend.git",
+        url:"https://careerbridge-job-portal-frontend.onrender.com/"
     },
     {
         w_no:2,
