@@ -7,7 +7,10 @@ import HeroSection from './components/HeroSection'
 import About from './components/About'
 import Skills from './components/Skills'
 import Projects from './components/Projects'
+import WorkExperience from './components/WorkExperience'
+import Stats from './components/Stats'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 function App() {
   const [active, setActive] = useState();
@@ -18,7 +21,10 @@ function App() {
       <About/>
       <Skills/>
       <Projects/>
+      <WorkExperience/>
+      <Stats/>
       <Contact/>
+      <Footer/>
     </div>
   )
 }

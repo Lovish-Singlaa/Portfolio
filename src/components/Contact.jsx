@@ -62,7 +62,7 @@ const Contact = () => {
             <div className='w-full flex md:flex-row flex-col'>
                 <div className='md:w-1/2 w-full'>
                     <h1 className='text-4xl md:text-5xl bg-custom-gradient text-transparent bg-clip-text my-5'>Let's talk</h1>
-                    <p className='md:pr-6'>I'm currently avaliable to take on new projects, so feel free to send me a message about anything that you want me to work on. You can contact anytime.</p>
+                    <p className='md:pr-6'>I'm currently avaliable to take on new opportunities, so feel free to send me a message about anything that you want me to work on. You can contact anytime.</p>
                     <div className='flex gap-4 my-5'>
                         <img src={mail_icon} alt="" width={25} />
                         <span>singlalovish26@gmail.com</span>
@@ -70,10 +70,6 @@ const Contact = () => {
                     <div className='flex gap-4 my-5'>
                         <img src={location_icon} alt="" width={22} />
                         <span>Ludhiana,Punjab,India</span>
-                    </div>
-                    <div className='flex gap-4 my-5'>
-                        <img src={call_icon} alt="" width={25} />
-                        <span>98159-XXXXX</span>
                     </div>
                 </div>
                 <div className='flex flex-col md:w-1/2'>

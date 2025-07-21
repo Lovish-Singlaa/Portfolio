@@ -20,6 +20,8 @@ const Navbar = () => {
         <a href='#about'><li>About Me</li></a>
         <a href='#skills'><li>Skills</li></a>
         <a href='#projects'><li>Projects</li></a>
+        <a href='#experience'><li>Experience</li></a>
+        <a href='#stats'><li>Stats</li></a>
         <a href='#contact'><li>Contact</li></a>
       </div>
       <a href='#contact'><button className='hidden md:flex border border-none bg-custom-gradient p-3 rounded-full tansition duration-300 hover:scale-110 font-semibold'>Connect With Me</button></a>
@@ -41,6 +43,11 @@ const Navbar = () => {
           <a href="#home" onClick={toggleMenu} className="block text-white hover:text-purple-400">Home</a>
           <a href="#about" onClick={toggleMenu} className="block text-white hover:text-purple-400">About</a>
           <a href="#skills" onClick={toggleMenu} className="block text-white hover:text-purple-400">Skills</a>
+          <a href="#projects" onClick={toggleMenu} className="block text-white hover:text-purple-400">Projects</a>
+          <a href="#experience" onClick={toggleMenu} className="block text-white hover:text-purple-400">Experience</a>
+          <a href="#education" onClick={toggleMenu} className="block text-white hover:text-purple-400">Education</a>
+          <a href="#stats" onClick={toggleMenu} className="block text-white hover:text-purple-400">Stats</a>
+          <a href="#testimonials" onClick={toggleMenu} className="block text-white hover:text-purple-400">Testimonials</a>
           <a href="#contact" onClick={toggleMenu} className="block text-white hover:text-purple-400">Contact</a>
           </div>
         </div>
