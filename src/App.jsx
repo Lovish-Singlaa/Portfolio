@@ -15,16 +15,20 @@ import Footer from './components/Footer'
 function App() {
   const [active, setActive] = useState();
   return (
-    <div className='p-5 text-white md:max-w-6xl max-w-xl mx-auto'>
+    <div className='text-white'>
       <Navbar/>
-      <HeroSection/>
-      <About/>
-      <Skills/>
-      <Projects/>
-      <WorkExperience/>
-      <Stats/>
-      <Contact/>
-      <Footer/>
+      <div className='pt-20'>
+        <div className='p-5 md:max-w-6xl max-w-xl mx-auto'>
+          <HeroSection/>
+          <About/>
+          <Skills/>
+          <Projects/>
+          <WorkExperience/>
+          <Stats/>
+          <Contact/>
+          <Footer/>
+        </div>
+      </div>
     </div>
   )
 }

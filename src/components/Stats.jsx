@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { FaCode, FaUsers, FaProjectDiagram, FaAward, FaGithub, FaLinkedin, FaGlobe } from "react-icons/fa";
+import { ScrollAnimation } from '../hooks/useScrollAnimation.jsx'
 
 const Stats = () => {
   const [counts, setCounts] = useState({
@@ -17,13 +18,6 @@ const Stats = () => {
       label: "Projects Completed",
       description: "Full-stack applications and web solutions"
     },
-    // {
-    //   id: 2,
-    //   icon: FaUsers,
-    //   number: 15,
-    //   label: "Happy Clients",
-    //   description: "Satisfied customers and partners"
-    // },
     {
       id: 3,
       icon: FaProjectDiagram,
@@ -41,14 +35,6 @@ const Stats = () => {
   ];
 
   const socialStats = [
-    // {
-    //   id: 1,
-    //   icon: FaGithub,
-    //   number: "150+",
-    //   label: "GitHub Repositories",
-    //   description: "Open source contributions and projects",
-    //   url: "https://github.com/yourusername"
-    // },
     {
       id: 2,
       icon: FaLinkedin,
@@ -101,129 +87,86 @@ const Stats = () => {
   return (
     <div id='stats' className='min-h-screen p-4 flex flex-col justify-center items-center text-white font-semibold max-w-6xl mx-auto'>
       {/* Header Section */}
-      <div className='relative my-10 text-center'>
-        <h1 className='text-6xl md:text-7xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent'>
-          Impact & Achievements
-        </h1>
-        <p className='text-gray-400 mt-4 text-lg max-w-2xl mx-auto'>
-          Key metrics that demonstrate my expertise and contributions
-        </p>
-      </div>
+      <ScrollAnimation className="scroll-fade-in">
+        <div className='relative my-10 text-center'>
+          <h1 className='text-6xl md:text-7xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent hover:text-gradient-animate transition-all duration-300'>
+            Impact & Achievements
+          </h1>
+          <p className='text-gray-400 mt-4 text-lg max-w-2xl mx-auto hover:text-white transition-colors duration-300'>
+            Key metrics that demonstrate my expertise and contributions
+          </p>
+        </div>
+      </ScrollAnimation>
 
       {/* Main Stats Grid */}
       <div className='w-full max-w-6xl mb-16'>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
           {stats.map((stat, index) => (
-            <div 
+            <ScrollAnimation 
               key={stat.id}
-              className='animate-fade-in-up bg-gradient-to-br from-gray-900/50 to-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 text-center hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20'
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="scroll-scale-in" 
+              delay={index * 200}
             >
-              <div className='flex justify-center mb-4'>
-                <div className='w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center'>
-                  <stat.icon className='text-white' size={28} />
+              <div className='bg-gradient-to-br from-gray-900/50 to-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 text-center hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 card-hover'>
+                <div className='flex justify-center mb-4'>
+                  <div className='w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 hover:animate-pulse-glow'>
+                    <stat.icon className='text-white hover:scale-110 transition-all duration-300' size={28} />
+                  </div>
                 </div>
+                <div className='text-4xl font-bold text-white mb-2 hover:text-gradient-animate transition-all duration-300'>
+                  {counts[Object.keys(counts)[index]]}+
+                </div>
+                <h3 className='text-lg font-semibold text-purple-400 mb-2 hover:text-white transition-colors duration-300'>
+                  {stat.label}
+                </h3>
+                <p className='text-gray-400 text-sm hover:text-gray-300 transition-colors duration-300'>
+                  {stat.description}
+                </p>
               </div>
-              <div className='text-4xl font-bold text-white mb-2'>
-                {counts[Object.keys(counts)[index]]}+
-              </div>
-              <h3 className='text-lg font-semibold text-purple-400 mb-2'>
-                {stat.label}
-              </h3>
-              <p className='text-gray-400 text-sm'>
-                {stat.description}
-              </p>
-            </div>
+            </ScrollAnimation>
           ))}
         </div>
       </div>
 
       {/* Social Stats */}
-      <div className='w-full max-w-4xl mb-16'>
-        <h2 className='text-3xl font-bold text-center mb-8 text-white'>
-          Online Presence
-        </h2>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-          {socialStats.map((stat, index) => (
-            <a
-              key={stat.id}
-              href={stat.url}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='group animate-fade-in-up bg-gradient-to-br from-gray-900/50 to-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 text-center hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 transform hover:scale-105'
-              style={{ animationDelay: `${(index + 4) * 0.1}s` }}
-            >
-              <div className='flex justify-center mb-4'>
-                <div className='w-14 h-14 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300'>
-                  <stat.icon className='text-white' size={24} />
-                </div>
-              </div>
-              <div className='text-3xl font-bold text-white mb-2'>
-                {stat.number}
-              </div>
-              <h3 className='text-lg font-semibold text-purple-400 mb-2'>
-                {stat.label}
-              </h3>
-              <p className='text-gray-400 text-sm'>
-                {stat.description}
-              </p>
-            </a>
-          ))}
-        </div>
-      </div>
-
-      {/* Additional Achievements
-      <div className='w-full max-w-4xl'>
-        <h2 className='text-3xl font-bold text-center mb-8 text-white'>
-          Recent Highlights
-        </h2>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-          <div className='bg-gradient-to-br from-gray-900/50 to-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:border-purple-500/50 transition-all duration-500'>
-            <h3 className='text-xl font-bold text-white mb-3'>Technical Excellence</h3>
-            <ul className='space-y-2 text-gray-300'>
-              <li className='flex items-center gap-2'>
-                <span className='w-2 h-2 bg-purple-500 rounded-full'></span>
-                <span>100% project completion rate</span>
-              </li>
-              <li className='flex items-center gap-2'>
-                <span className='w-2 h-2 bg-purple-500 rounded-full'></span>
-                <span>Average 4.9/5 client satisfaction</span>
-              </li>
-              <li className='flex items-center gap-2'>
-                <span className='w-2 h-2 bg-purple-500 rounded-full'></span>
-                <span>50+ code reviews conducted</span>
-              </li>
-              <li className='flex items-center gap-2'>
-                <span className='w-2 h-2 bg-purple-500 rounded-full'></span>
-                <span>Mentored 5+ junior developers</span>
-              </li>
-            </ul>
-          </div>
-          
-          <div className='bg-gradient-to-br from-gray-900/50 to-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:border-purple-500/50 transition-all duration-500'>
-            <h3 className='text-xl font-bold text-white mb-3'>Community Impact</h3>
-            <ul className='space-y-2 text-gray-300'>
-              <li className='flex items-center gap-2'>
-                <span className='w-2 h-2 bg-purple-500 rounded-full'></span>
-                <span>Active open source contributor</span>
-              </li>
-              <li className='flex items-center gap-2'>
-                <span className='w-2 h-2 bg-purple-500 rounded-full'></span>
-                <span>Tech community speaker</span>
-              </li>
-              <li className='flex items-center gap-2'>
-                <span className='w-2 h-2 bg-purple-500 rounded-full'></span>
-                <span>Published technical articles</span>
-              </li>
-              <li className='flex items-center gap-2'>
-                <span className='w-2 h-2 bg-purple-500 rounded-full'></span>
-                <span>Volunteer coding instructor</span>
-              </li>
-            </ul>
+      <ScrollAnimation className="scroll-fade-in">
+        <div className='w-full max-w-4xl mb-16'>
+          <h2 className='text-3xl font-bold text-center mb-8 text-white hover:text-gradient-animate transition-all duration-300'>
+            Online Presence
+          </h2>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+            {socialStats.map((stat, index) => (
+              <ScrollAnimation 
+                key={stat.id}
+                className="scroll-slide-left" 
+                delay={index * 200}
+              >
+                <a
+                  href={stat.url}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='group bg-gradient-to-br from-gray-900/50 to-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 text-center hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 card-hover block'
+                >
+                  <div className='flex justify-center mb-4'>
+                    <div className='w-14 h-14 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 hover:animate-pulse-glow'>
+                      <stat.icon className='text-white group-hover:scale-110 transition-all duration-300' size={24} />
+                    </div>
+                  </div>
+                  <div className='text-3xl font-bold text-white mb-2 group-hover:text-gradient-animate transition-all duration-300'>
+                    {stat.number}
+                  </div>
+                  <h3 className='text-lg font-semibold text-purple-400 mb-2 group-hover:text-white transition-colors duration-300'>
+                    {stat.label}
+                  </h3>
+                  <p className='text-gray-400 text-sm group-hover:text-gray-300 transition-colors duration-300'>
+                    {stat.description}
+                  </p>
+                </a>
+              </ScrollAnimation>
+            ))}
           </div>
         </div>
-      </div> */}
-
+      </ScrollAnimation>
     </div>
   )
 }
